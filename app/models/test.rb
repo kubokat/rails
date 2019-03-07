@@ -2,6 +2,7 @@ class Test < ApplicationRecord
   has_and_belongs_to_many :users
   belongs_to :category
   belongs_to :author, class_name: 'User'
+  has_many :questions
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true }
