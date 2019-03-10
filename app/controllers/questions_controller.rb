@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
 
-  skip_before_action :verify_authenticity_token, :only => [:destroy]
-  before_action :find_test, :only => [:create, :index]
+  skip_before_action :verify_authenticity_token, only: [:destroy]
+  before_action :find_test, only: [:create, :index]
+  before_action :find_question, only: [:show, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_question_find_not_found
 
   def index
@@ -9,19 +10,23 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render json: Question.find(params[:id])
+    render json: @question
   end
 
   def destroy
-    render json: Question.delete(params[:id])
+    render json: @question.delete()
   end
 
   def new
   end
 
   def create
-    question = @test.questions.create(question_params)
-    render plain: question.inspect
+    question = @test.questions.new(question_params)
+    if question.save
+      render plain: question.inspect
+    else
+      handle error
+    end
   end
 
   private
@@ -32,6 +37,10 @@ class QuestionsController < ApplicationController
 
   def find_test
     @test = Test.find(params[:test_id])
+  end
+
+  def find_question
+    @question = Question.find(params[:id]);
   end
 
   def rescue_question_find_not_found
