@@ -1,0 +1,9 @@
+<h1>Question form</h1>
+<form method="POST" action="/tests/<%= params[:test_id] %>/questions" >
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label>body</label>
+  <br/>
+  <textarea name="question[body]"></textarea>
+  <br/>
+  <button type="submit">Send</button>
+</form>
