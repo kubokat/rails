@@ -1,16 +1,16 @@
 class QuestionsController < ApplicationController
 
   skip_before_action :verify_authenticity_token, only: [:destroy]
-  before_action :find_test, only: [:create, :index]
-  before_action :find_question, only: [:show, :destroy]
+  before_action :find_test, only: [:create, :index, :new]
+  before_action :find_question, only: [:show, :destroy, :edit, :update]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_question_find_not_found
 
   def index
-    render json: @test.questions
+    @questions = Question.all
   end
 
   def show
-    render json: @question
+    @question
   end
 
   def destroy
@@ -18,14 +18,28 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @question = @test.questions.new
   end
 
   def create
     question = @test.questions.new(question_params)
+
     if question.save
-      render plain: question.inspect
+      redirect_to question
     else
-      handle error
+      render :new
+    end
+
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
     end
   end
 
