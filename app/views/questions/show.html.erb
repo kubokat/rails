@@ -1,6 +1,11 @@
 <p>
   <%=	@question.body %>
 </p>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
+
 <%= link_to 'Back', test_path(@question.test) %>
 <%= link_to "Create question", new_test_question_url(@question.test) %>
 <%= link_to "Edit question", edit_question_path(@question) %>

@@ -9,5 +9,6 @@
     <%= link_to "Delete test", test_path(test),
                 method: :delete,
                 data: { confirm: 'Confirm?' } %>
+    <%= button_to 'Start!', start_test_path(test.id) %>
   </div>
 <% end %>
