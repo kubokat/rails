@@ -31,6 +31,14 @@ class TestPassage < ApplicationRecord
     test.questions.index(current_question) + 1
   end
 
+  def self.result_color(result)
+    if result >= MIN_PERCENT
+      :green
+    else
+      :red
+    end
+  end
+
   private
 
   def correct_answer?(answer_ids)
