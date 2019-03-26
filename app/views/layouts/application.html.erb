@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <div>
+    <% if logged_in? %>
+        Welcome, <%= current_user.name %> <%= link_to 'Guru', root_path %>
+        <%= link_to 'SingOut', singout_path %>
+    <% else %>
+        <%= link_to 'SingIn', sessions_new_path %>
+        <%= link_to 'Registration', users_new_path %>
+    <% end %>
+    </div>
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>
