@@ -3,12 +3,6 @@
   <div style="padding: 10px; border: 1px solid seagreen">
     <h2><%= test.title %></h2>
     <p><%= pluralize(test.questions.size, 'question') %></p>
-    <%= link_to "Create test", new_test_path %>
-    <%= link_to "Show test", test_path(test.id) %>
-    <%= link_to "Edit test", edit_test_url(test.id) %>
-    <%= link_to "Delete test", test_path(test),
-                method: :delete,
-                data: { confirm: 'Confirm?' } %>
     <%= button_to 'Start!', start_test_path(test.id) %>
   </div>
 <% end %>

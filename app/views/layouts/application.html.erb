@@ -11,13 +11,15 @@
 
   <body>
     <div>
-    <% if logged_in? %>
-        Welcome, <%= current_user.name %> <%= link_to 'Guru', root_path %>
-        <%= link_to 'SingOut', singout_path %>
-    <% else %>
-        <%= link_to 'SingIn', sessions_new_path %>
-        <%= link_to 'Registration', users_new_path %>
-    <% end %>
+      <% if user_signed_in? %>
+        <p class="nav user">
+          Welcome, <b><%= current_user.name %> </b>Guru |
+          <%= link_to 'Logout', destroy_user_session_path, data: { method: :delete } %>
+        </p>
+      <% end %>
+
+    <%= render 'shared/flash'%>
+
     </div>
     <%= yield %>
     <%= render 'shared/footer' %>
