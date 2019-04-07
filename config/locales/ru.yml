@@ -11,8 +11,8 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
-      select:
-        prompt: "Выберите категорию"
+    select:
+      prompt: "Выберите категорию"
 
   tests:
     index:
