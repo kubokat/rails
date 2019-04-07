@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
 
   skip_before_action :verify_authenticity_token, only: [:destroy]
   before_action :find_test, only: [:create, :index, :new]

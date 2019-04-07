@@ -1,0 +1,13 @@
+<h1>Tests list</h1>
+<% @tests.each do |test| %>
+  <div style="padding: 10px; border: 1px solid seagreen">
+    <h2><%= test.title %></h2>
+    <p><%= pluralize(test.questions.size, 'question') %></p>
+    <%= link_to "Create test", new_admin_test_path %>
+    <%= link_to "Show test", admin_test_path(test.id) %>
+    <%= link_to "Edit test", edit_admin_test_path(test.id) %>
+    <%= link_to "Delete test", admin_test_path(test),
+                method: :delete,
+                data: { confirm: 'Confirm?' } %>
+  </div>
+<% end %>
