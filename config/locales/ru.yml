@@ -1,0 +1,74 @@
+ru:
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+      test_passage:
+        next: "Дальше"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+      select:
+        prompt: "Выберите категорию"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      start: "Начать"
+
+  test_passages:
+    result:
+      header: "Тест %{title} завершен"
+      result: "Ваш результат %{result}%"
+      back: "Вернуться к списку тестов"
+    show:
+      header: "Проходим тест по теме: %{title}"
+      counter: "Вопрос № %{number} из %{total}"
+    update:
+      completed: "Тест завершен"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  admin:
+    tests:
+      create:
+        success: "Тест был создан успешно"
+      index:
+        header: "Тесты"
+        new_test: "Новый тест"
+        question_counter:
+          few: "%{count} вопроса"
+          many: "%{count} вопросов"
+          one: "%{count} вопрос"
+          other: "%{count} вопросов"
+      show:
+        header: "Просмотр теста"
+        back: "Назад"
+      new:
+        create: "Создать новый тест"
+        back: "Назад"
+      edit:
+        header: "Редактировать"
+      update:
+        success: "Тест обновлен"
+      destroy:
+        header: "Удалить"
+        success: "Тест удален"
+  layouts:
+    application:
+      welcome: "Добро пожаловать %{user_name} Гуру"
+      log_out: "Выход"
+      sign_up: "Регистрация"
+      log_in: "Вход"
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест"
