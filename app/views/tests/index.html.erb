@@ -1,8 +1,8 @@
-<h1>Tests list</h1>
+<h1><%= t('.header') %></h1>
 <% @tests.each do |test| %>
   <div style="padding: 10px; border: 1px solid seagreen">
     <h2><%= test.title %></h2>
-    <p><%= pluralize(test.questions.size, 'question') %></p>
-    <%= button_to 'Start!', start_test_path(test.id) %>
+    <p><%= t('admin.tests.index.question_counter', count: test.questions.size) %></p>
+    <%= button_to t('.start'), start_test_path(test.id) %>
   </div>
 <% end %>
