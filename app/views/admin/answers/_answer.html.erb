@@ -1,8 +1,8 @@
 <li>
-  <%= link_to "#{answer.body}", answer_path(answer) %>
-  (<%= link_to 'Edit', edit_answer_path(answer) %> |
+  <%= link_to "#{answer.body}", admin_answer_path(answer) %>
+  (<%= link_to 'Edit', edit_admin_answer_path(answer) %> |
   <%= link_to 'Delete',
-              answer_path(answer),
+              admin_answer_path(answer),
               method: :delete,
               data: { confirm: 'Confirm?' }%>)
 </li>

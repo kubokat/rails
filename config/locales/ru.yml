@@ -37,6 +37,11 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+    nav:
+      welcome: "Добро пожаловать %{user_name} Гуру"
+      log_out: "Выход"
+      sign_up: "Регистрация"
+      log_in: "Вход"
 
   admin:
     tests:
@@ -63,12 +68,7 @@ ru:
       destroy:
         header: "Удалить"
         success: "Тест удален"
-  layouts:
-    application:
-      welcome: "Добро пожаловать %{user_name} Гуру"
-      log_out: "Выход"
-      sign_up: "Регистрация"
-      log_in: "Вход"
+
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест"
