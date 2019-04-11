@@ -29,6 +29,9 @@ ru:
       counter: "Вопрос № %{number} из %{total}"
     update:
       completed: "Тест завершен"
+    gist:
+      success: "Gist успешно сохранен"
+      failture: "Во время сохранения gist возникла ошибка"
 
   shared:
     errors:
@@ -72,3 +75,5 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест"
+
+  description: "Вопрос о %{title} для TestGuru"
