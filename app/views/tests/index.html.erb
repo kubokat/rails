@@ -1,8 +1,12 @@
 <h1><%= t('.header') %></h1>
 <% @tests.each do |test| %>
-  <div style="padding: 10px; border: 1px solid seagreen">
-    <h2><%= test.title %></h2>
-    <p><%= t('admin.tests.index.question_counter', count: test.questions.size) %></p>
-    <%= button_to t('.start'), start_test_path(test.id) %>
+  <div class="card mt-3">
+    <div class="card-header">
+      <%= test.title %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= t('admin.tests.index.question_counter', count: test.questions.size) %></h5>
+      <%= button_to t('.start'), start_test_path(test.id), class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

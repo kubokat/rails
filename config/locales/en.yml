@@ -14,18 +14,17 @@ en:
     select:
       prompt: "Choose category"
 
-  layouts:
-    application:
-      welcome: "Welcome %{user_name} Guru"
-      log_out: "Log out"
-      sign_up: "Sign up"
-      log_in: "log in"
 
   shared:
     errors:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    nav:
+      welcome: "Welcome %{user_name} Guru"
+      log_out: "Log out"
+      sign_up: "Sign up"
+      log_in: "log in"
 
   tests:
     index:

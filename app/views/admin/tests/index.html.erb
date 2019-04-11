@@ -1,13 +1,17 @@
 <h1><%= t('.header') %></h1>
 <% @tests.each do |test| %>
-  <div style="padding: 10px; border: 1px solid seagreen">
-    <h2><%= test.title %></h2>
-    <p><%= t('.question_counter', count: test.questions.size) %></p>
-    <%= link_to t('.new_test'), new_admin_test_path %>
-    <%= link_to t('admin.tests.show.header'), admin_test_path(test.id) %>
-    <%= link_to t('admin.tests.edit.header'), edit_admin_test_path(test.id) %>
-    <%= link_to t('admin.tests.destroy.header'), admin_test_path(test),
-                method: :delete,
-                data: { confirm: 'Confirm?' } %>
+  <div class="card mt-3">
+    <div class="card-header">
+      <%= test.title %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= t('.question_counter', count: test.questions.size) %></h5>
+      <%= link_to t('.new_test'), new_admin_test_path %>
+      <%= link_to t('admin.tests.show.header'), admin_test_path(test.id) %>
+      <%= link_to t('admin.tests.edit.header'), edit_admin_test_path(test.id) %>
+      <%= link_to t('admin.tests.destroy.header'), admin_test_path(test),
+                  method: :delete,
+                  data: { confirm: 'Confirm?' } %>
+    </div>
   </div>
 <% end %>
