@@ -1,12 +1,28 @@
 <h1><%= t('.header') %></h1>
-<% @tests.each do |test| %>
-  <div class="card mt-3">
-    <div class="card-header">
-      <%= test.title %>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title"><%= t('admin.tests.index.question_counter', count: test.questions.size) %></h5>
-      <%= button_to t('.start'), start_test_path(test.id), class: 'btn btn-primary' %>
-    </div>
-  </div>
-<% end %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th class="sort-by-title pointer">
+      Title
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th scope="col">Level</th>
+    <th scope="col">Questions</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @tests.each do |test| %>
+    <tr>
+      <th><%= test.title %></th>
+      <td><%= test.level %></td>
+      <td><%= t('admin.tests.index.question_counter', count: test.questions.size) %></td>
+      <td>
+        <%= button_to t('.start'), start_test_path(test.id), class: 'btn btn-primary' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

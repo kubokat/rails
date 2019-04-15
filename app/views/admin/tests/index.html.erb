@@ -1,17 +1,33 @@
 <h1><%= t('.header') %></h1>
-<% @tests.each do |test| %>
-  <div class="card mt-3">
-    <div class="card-header">
-      <%= test.title %>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title"><%= t('.question_counter', count: test.questions.size) %></h5>
-      <%= link_to t('.new_test'), new_admin_test_path %>
-      <%= link_to t('admin.tests.show.header'), admin_test_path(test.id) %>
-      <%= link_to t('admin.tests.edit.header'), edit_admin_test_path(test.id) %>
-      <%= link_to t('admin.tests.destroy.header'), admin_test_path(test),
-                  method: :delete,
-                  data: { confirm: 'Confirm?' } %>
-    </div>
-  </div>
-<% end %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th class="sort-by-title pointer">
+      Title
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th scope="col">Level</th>
+    <th scope="col">Questions</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @tests.each do |test| %>
+    <tr>
+      <th><%= test.title %></th>
+      <td><%= test.level %></td>
+      <td><%= t('.question_counter', count: test.questions.size) %></td>
+      <td><%= link_to t('.new_test'), new_admin_test_path %>
+        <%= link_to t('admin.tests.show.header'), admin_test_path(test.id) %>
+        <%= link_to t('admin.tests.edit.header'), edit_admin_test_path(test.id) %>
+        <%= link_to t('admin.tests.destroy.header'), admin_test_path(test),
+                    method: :delete,
+                    data: { confirm: 'Confirm?' } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
