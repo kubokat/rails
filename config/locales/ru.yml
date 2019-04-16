@@ -71,6 +71,8 @@ ru:
       destroy:
         header: "Удалить"
         success: "Тест удален"
+      form_inline:
+        submit: "Ok"
 
   tests_mailer:
     completed_test:

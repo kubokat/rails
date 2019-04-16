@@ -69,6 +69,8 @@ en:
         choice: "Are you sure?"
         edit: "Edit"
         delete: "Delete"
+      form_inline:
+        submit: "Ok"
 
   tests_mailer:
     completed_test:

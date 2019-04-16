@@ -1,5 +1,7 @@
 <h1><%= t('.header') %></h1>
 
+<%= render 'shared/errors', resource: @test %>
+
 <table class="table">
   <thead>
   <tr>
@@ -16,12 +18,15 @@
   <tbody>
   <% @tests.each do |test| %>
     <tr>
-      <th><%= test.title %></th>
-      <td><%= test.level %></td>
-      <td><%= t('.question_counter', count: test.questions.size) %></td>
-      <td><%= link_to t('.new_test'), new_admin_test_path %>
+      <td class="align-middle">
+        <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
+        <%= render 'form_inline', test: test == @test ? @test : test %>
+      </td>
+      <td class="align-middle"><%= test.level %></td>
+      <td class="align-middle"><%= t('.question_counter', count: test.questions.size) %></td>
+      <td class="align-middle"><%= link_to t('.new_test'), new_admin_test_path %>
         <%= link_to t('admin.tests.show.header'), admin_test_path(test.id) %>
-        <%= link_to t('admin.tests.edit.header'), edit_admin_test_path(test.id) %>
+        <%= link_to t('admin.tests.edit.header'), edit_admin_test_path(test.id), class: 'form-inline-link', data: { test_id: test.id } %>
         <%= link_to t('admin.tests.destroy.header'), admin_test_path(test),
                     method: :delete,
                     data: { confirm: 'Confirm?' } %>
@@ -30,4 +35,3 @@
   <% end %>
   </tbody>
 </table>
-
