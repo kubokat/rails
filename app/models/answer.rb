@@ -8,7 +8,7 @@ class Answer < ApplicationRecord
   private
 
   def answer_counter
-    errors.add(:answer) if question.answers.size >= 4
+    #errors.add(:answer) if question.answers.size >= 4
   end
 
 end

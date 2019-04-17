@@ -5,7 +5,7 @@ en:
 
   attributes:
     test:
-      title: "Name"
+      title: "Title"
 
   errors:
     messages:
