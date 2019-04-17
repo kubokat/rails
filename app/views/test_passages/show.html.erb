@@ -1,6 +1,7 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
 <p><%= t('.counter', number: @test_passage.question_index, total: @test_passage.test.questions.size) %></p>
+<%= content_tag :div, id: 'progress', data: { total: @test_passage.test.questions.size, number: @test_passage.question_index } do %><% end %>
 
 <b><%= @test_passage.current_question.body %></b>
 

@@ -1,6 +1,8 @@
 <h1><%= t('.header') %></h1>
 <h2><%= @test.title %></h2>
 
+<%= link_to t('.new_question'), new_admin_test_question_path(@test.id) %>
+
 <ol>
   <%= render partial: '/admin/questions/question', collection: @test.questions %>
 </ol>

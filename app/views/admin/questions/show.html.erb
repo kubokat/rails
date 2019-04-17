@@ -2,6 +2,8 @@
   <%=	@question.body %>
 </p>
 
+<%= link_to 'Новый ответ', new_admin_question_answer_path(@question) %>
+
 <ol>
   <%= render @question.answers %>
 </ol>
