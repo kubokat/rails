@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to gist.question.body[0...20], admin_question_url(gist.question.id) %></td>
+  <td><%= link_to gist.question.body.truncate(20), admin_question_url(gist.question.id) %></td>
   <td><%= link_to hash_url(gist.url), gist.url, :target => "_blank" %></td>
   <td><%= gist.user.email %></td>
 </tr>

@@ -1,5 +1,3 @@
-require 'octokit'
-
 class GitHubClient
 
   def initialize
@@ -9,6 +7,10 @@ class GitHubClient
 
   def create_gist(params)
     @client.create_gist(params)
+  end
+
+  def last_response
+    @client.last_response
   end
 
   private

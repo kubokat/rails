@@ -24,9 +24,14 @@ class TestPassagesController < ApplicationController
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
 
-    current_user.gists.create(question_id: @test_passage.current_question.id, url: result.html_url)
+    if result.status >= 200 && result.status <= 300
+      current_user.gists.create(question_id: @test_passage.current_question.id, url: result.data.html_url)
+      notice = result.data.html_url
+    else
+      notice = 'Octokit request error'
+    end
 
-    flash_options = { notice: result.html_url }
+    flash_options = { notice: notice }
 
     redirect_to @test_passage, flash_options
   end
