@@ -1,0 +1,13 @@
+<div class="col-12">
+  <div class="form-group">
+    <%= form_with url: send_feedback_feedback_index_url, local: true, method: :post do |form| %>
+
+      <p>
+        <%= form.label :text %><br>
+        <%= form.text_area :body, id: :feedback_body,class: 'form-control', rows: 7, cols: 60 %>
+      </p>
+
+      <p><%= form.submit class: 'btn btn-primary' %></p>
+    <% end %>
+  </div>
+</div>

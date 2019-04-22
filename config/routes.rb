@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
+  resources :feedback, only: :index do
+    collection do
+      post :send_feedback
+    end
+  end
+
   resources :tests, only: :index do
     resources :questions, shallow: true, except: :index do
       resources :answers, shallow: true, except: :index

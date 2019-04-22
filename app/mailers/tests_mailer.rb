@@ -5,4 +5,9 @@ class TestsMailer < ApplicationMailer
 
     mail to: @user.email
   end
+
+  def feedback(body)
+    @body = body
+    mail to: ENV["ADMIN_EMAIL"]
+  end
 end
