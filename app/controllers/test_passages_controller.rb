@@ -3,7 +3,7 @@ class TestPassagesController < ApplicationController
   before_action :find_test_passage, only: %i[show update result gist]
 
   def show
-
+      redirect_to tests_path, { notice: 'no questions' } if @test_passage.test.questions.size == 0
   end
 
   def result
