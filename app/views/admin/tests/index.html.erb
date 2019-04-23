@@ -2,6 +2,10 @@
 
 <%= render 'shared/errors', resource: @test %>
 
+<p>
+  <%= link_to t('.new_test'), new_admin_test_path %>
+</p>
+
 <table class="table">
   <thead>
   <tr>
@@ -24,7 +28,7 @@
       </td>
       <td class="align-middle"><%= test.level %></td>
       <td class="align-middle"><%= t('.question_counter', count: test.questions.size) %></td>
-      <td class="align-middle"><%= link_to t('.new_test'), new_admin_test_path %>
+      <td class="align-middle">
         <%= link_to t('admin.tests.show.header'), admin_test_path(test.id) %>
         <%= link_to t('admin.tests.edit.header'), edit_admin_test_path(test.id), class: 'form-inline-link', data: { test_id: test.id } %>
         <%= link_to t('admin.tests.destroy.header'), admin_test_path(test),
