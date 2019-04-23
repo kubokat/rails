@@ -1,5 +1,3 @@
-require 'octokit'
-
 class GitHubClient
 
   def initialize

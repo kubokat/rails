@@ -12,6 +12,7 @@ module TestGuru
     config.load_defaults 5.2
     config.i18n.default_locale = :ru
 
+    config.enable_dependency_loading = true
     config.autoload_paths << "#{Rails.root}/lib/clients"
 
     # Settings in config/environments/* take precedence over those specified here.
