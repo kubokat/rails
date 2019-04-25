@@ -39,7 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise', '~> 4.0'
 
 gem 'faraday'
-gem "octokit", "~> 4.0"
+gem 'octokit'
 
 gem 'rails-i18n', '~> 5.0.0'
 
