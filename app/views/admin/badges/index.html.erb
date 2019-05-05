@@ -1,0 +1,17 @@
+<h1><%= controller.controller_name %></h1>
+
+<%= link_to "add badge",new_admin_badge_path  %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">name</th>
+    <th scope="col">image</th>
+    <th scope="col">rule name</th>
+    <th scope="col">rule value</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @badges %>
+  </tbody>
+</table>

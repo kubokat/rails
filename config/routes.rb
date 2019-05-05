@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges
+
   resources :tests, only: :index do
     resources :questions, shallow: true, except: :index do
       resources :answers, shallow: true, except: :index
@@ -36,5 +38,6 @@ Rails.application.routes.draw do
       end
     end
     resources :gists
+    resources :badges
   end
 end

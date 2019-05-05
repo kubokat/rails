@@ -8,6 +8,16 @@ class TestPassagesController < ApplicationController
 
   def result
     @result = @test_passage.result_percent
+
+    if @result >= TestPassage::MIN_PERCENT
+
+      @test_passage.update(passed: true)
+
+      badge = Badge.check_rules(@test_passage).compact
+      current_user.badges << badge if badge.present?
+
+    end
+
   end
 
   def update
