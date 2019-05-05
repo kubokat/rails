@@ -13,8 +13,8 @@ class TestPassagesController < ApplicationController
 
       @test_passage.update(passed: true)
 
-      badge = Badge.check_rules(@test_passage).compact
-      current_user.badges << badge if badge.present?
+      badges = BadgeService.new(@test_passage).check_rules().compact
+      current_user.badges << badges if badges.present?
 
     end
 
@@ -23,8 +23,11 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.completed?
-      TestsMailer.completed_test(@test_passage).deliver_now
+    if @test_passage.completed? || !@timer
+      if @timer
+        TestsMailer.completed_test(@test_passage).deliver_now
+      end
+
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -50,5 +53,6 @@ class TestPassagesController < ApplicationController
 
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])
+    @timer = @test_passage.check_time
   end
 end
