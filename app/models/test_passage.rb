@@ -39,6 +39,16 @@ class TestPassage < ApplicationRecord
     end
   end
 
+  def check_time
+    time_diff = (Time.current - self.created_at)
+
+    if (time_diff / 1.minute).round < test.timer
+      (test.timer * 60) - (time_diff / 1.second).round
+    else
+      false
+    end
+  end
+
   private
 
   def correct_answer?(answer_ids)
